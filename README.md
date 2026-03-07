@@ -87,7 +87,7 @@ src
 Clone the repository:
 
 ```id="3nmxja"
-git clone https://github.com/your-username/todo-app.git
+https://github.com/atibioke/botosoft-todo.git
 ```
 
 Move into the project directory:
