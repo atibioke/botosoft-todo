@@ -82,6 +82,9 @@ function App() {
     return true;
   });
 
+
+  
+
   return (
     <div className="main-container">
       <div className="container">
@@ -116,7 +119,8 @@ function App() {
             <Droppable droppableId="todos">
               {(provided) => (
                 <div {...provided.droppableProps} ref={provided.innerRef}>
-                  {filteredTodos.map((todo, index) => (
+                  {filteredTodos.length === 0 ? (<div className="no-todo-container">
+                  <p className="no-todo-text">No todos yet! Add one above.</p></div>) :  filteredTodos.map((todo, index) => (
                     <Draggable key={todo.id} draggableId={todo.id} index={index}>
                       {(provided) => (
                         <div
@@ -138,7 +142,7 @@ function App() {
                         </div>
                       )}
                     </Draggable>
-                  ))}
+                  ))  }
                   {provided.placeholder}
                 </div>
               )}
