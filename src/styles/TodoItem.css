@@ -1,0 +1,40 @@
+.todoitem-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.checkbox-container {
+    width: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+.delete-button-container {
+    width: 110px;
+    display: flex;
+    align-items: center;
+}
+
+.todo-text-container {
+    width: calc(100% - 130px);
+    padding: 10px;
+}
+
+.delete-btn {
+    background: red;
+    color: #fff;
+border: 1px solid #000;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* .delete-btn{
+    padding: 0.6em 1.2em;
+        border: 1px solid #000;
+        border-radius: 5px;
+        color: #fff;
+    
+} */

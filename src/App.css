@@ -1,0 +1,93 @@
+.main-container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container{
+  padding: 20px; 
+  width: 500px;
+  /* margin: 0 auto; */
+  background-color: #ccc;
+border-radius: 10px;
+}
+
+.todos-container{
+display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    background: #f4f4f4;
+    padding: 8px;
+    color: #000;
+    border-radius: 4px;
+    width: 100%;
+  
+}
+
+.dragdrop-container{
+  height: 300px;
+  overflow-y: scroll;
+ overflow-x: hidden;
+}
+
+.todo-header{
+  text-align: center;
+  color: #000;
+}
+
+.filter-buttons-container{
+  width: 100%;
+ 
+}
+
+.buttons-container{
+display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.filter-btn{
+      padding: 0.6em 1.2em;
+      border: 1px solid #000;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+}
+
+
+@media (max-width: 500px) {
+  .main-container {
+   /* // padding: 10px; */
+      overflow: hidden;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+ 
+
+    .filter-buttons-container {
+      overflow-x: auto;
+      width: 100%;
+    }
+  
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: nowrap;
+  
+    }
+  
+    .filter-btn {
+      min-width: 150px;
+      flex-shrink: 0;
+        padding: 0.6em 1.2em;
+        cursor: pointer;
+    }
+}
