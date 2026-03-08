@@ -6,7 +6,7 @@ export type Filter = "all" | "active" | "completed";
 export function useTodos() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<Filter>("all");
-
+  /// Add todo
   const addTodo = (text: string) => {
     const newTodo: Todo = {
       id: Date.now().toString(),
@@ -15,7 +15,7 @@ export function useTodos() {
     };
     setTodos([...todos, newTodo]);
   };
-
+  /// Toggle todo
   const toggleTodo = (id: string) => {
     setTodos(
       todos.map(todo =>
@@ -24,21 +24,24 @@ export function useTodos() {
     );
   };
 
+
+  ///Delete todo
   const deleteTodo = (id: string) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
-
+  ///Clear complete todo
   const clearCompleted = () => {
     setTodos(todos.filter(todo => !todo.completed));
   };
+  ///Edit todo
   const editTodo = (id: string, newText: string) => {
-  setTodos((prev) =>
-    prev.map((todo) =>
-      todo.id === id ? { ...todo, text: newText } : todo
-    )
-  );
-};
-
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, text: newText } : todo
+      )
+    );
+  };
+  ///Filter todo
   const filteredTodos = todos.filter(todo => {
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
