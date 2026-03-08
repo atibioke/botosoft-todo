@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Todo } from "../types/todo";
 import type { DropResult } from "@hello-pangea/dnd";
 
-export type Filter = "all" | "active" | "completed";;
+export type Filter = "all" | "active" | "completed";
 
 export function useTodos() {
   const [todos, setTodos] = useState<Todo[]>([]);
