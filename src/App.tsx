@@ -90,7 +90,19 @@ function App() {
     )
   );
 };
-  
+  function getEmptyMessage(filter: string) {
+  switch (filter) {
+    case "active":
+      return "No active tasks.";
+
+    case "completed":
+      return "No completed tasks.";
+
+    case "all":
+    default:
+      return "No todos yet. Add one above.";
+  }
+}
 
   return (
     <div className="main-container">
@@ -127,7 +139,7 @@ function App() {
               {(provided) => (
                 <div {...provided.droppableProps} ref={provided.innerRef}>
                   {filteredTodos.length === 0 ? (<div className="no-todo-container">
-                  <p className="no-todo-text">No todos yet! Add one above.</p></div>) :  filteredTodos.map((todo, index) => (
+                  <p className="no-todo-text">{getEmptyMessage(filter)}</p></div>) :  filteredTodos.map((todo, index) => (
                     <Draggable key={todo.id} draggableId={todo.id} index={index}>
                       {(provided) => (
                         <div

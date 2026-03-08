@@ -14,6 +14,10 @@
   /* margin: 0 auto; */
   background-color: #ccc;
 border-radius: 10px;
+
+box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .todos-container{
@@ -36,7 +40,7 @@ display: flex;
 
 .todo-header{
   text-align: center;
-  color: #000;
+  color: #1f2937;
 }
 
 .filter-buttons-container{
@@ -67,7 +71,7 @@ display: flex;
 }
 
 .no-todo-text {
-  color: #000;
+  color: #1f2937;
   font-size: 30px;
 }
 

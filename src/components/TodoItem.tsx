@@ -5,70 +5,70 @@ import { faCheck, faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-ico
 import '../styles/TodoItem.css'
 
 type Props = {
-  todo: Todo;
-  deleteTodo: (id: string) => void;
-  toggleTodo: (id: string) => void;
-  editTodo: (id: string, text: string) => void;
+    todo: Todo;
+    deleteTodo: (id: string) => void;
+    toggleTodo: (id: string) => void;
+    editTodo: (id: string, text: string) => void;
 };
 
 function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: Props) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [newText, setNewText] = useState(todo.text);
+    const [isEditing, setIsEditing] = useState(false);
+    const [newText, setNewText] = useState(todo.text);
 
-  const handleSave = () => {
-    if (!newText.trim()) return;
-    editTodo(todo.id, newText);
-    setIsEditing(false);
-  };
+    const handleSave = () => {
+        if (!newText.trim()) return;
+        editTodo(todo.id, newText);
+        setIsEditing(false);
+    };
 
-  return (
-    <div className="todoitem-container">
-      <div className="checkbox-container">
-        <input
-          type="checkbox"
-          checked={todo.completed}
-          onChange={() => toggleTodo(todo.id)}
-        />
-      </div>
+    return (
+        <div className="todoitem-container">
+            <div className="checkbox-container">
+                <input
+                    type="checkbox"
+                    checked={todo.completed}
+                    onChange={() => toggleTodo(todo.id)}
+                />
+            </div>
 
-      <div className="todo-text-container">
-        {isEditing ? (
-          <>
-                      <input
-                          autoFocus
-                          value={newText}
-                           className="todo-input-edit"
-              onChange={(e) => setNewText(e.target.value)}
-            />
+            <div className="todo-text-container">
+                {isEditing ? (
+                    <>
+                        <input
+                            autoFocus
+                            value={newText}
+                            className="todo-input-edit"
+                            onChange={(e) => setNewText(e.target.value)}
+                        />
 
-          
-          </>
-        ) : (
-          <span
-            style={{
-              textDecoration: todo.completed ? "line-through" : "none"
-            }}
-          >
-            {todo.text}
-          </span>
-        )}
-      </div>
 
-          <div className="delete-button-container">
-              
-              {isEditing?   <button onClick={handleSave} className="icon-btn">
-              <FontAwesomeIcon icon={faCheck} style={{ color: "rgb(24, 24, 223)" }} />
-            </button> :  <button onClick={() => setIsEditing(true)} className="icon-btn">
-          <FontAwesomeIcon icon={faPenToSquare} style={{ color: "rgb(28, 26, 26)" }} />
-        </button>}
-       
+                    </>
+                ) : (
+                    <span
+                        style={{
+                            textDecoration: todo.completed ? "line-through" : "none"
+                        }}
+                    >
+                        {todo.text}
+                    </span>
+                )}
+            </div>
 
-        <button onClick={() => deleteTodo(todo.id)} className="icon-btn">
-          <FontAwesomeIcon icon={faTrash} style={{ color: "rgb(242, 16, 16)" }} />
-        </button>
-      </div>
-    </div>
-  );
+            <div className="delete-button-container">
+
+                {isEditing ? <button onClick={handleSave} className="icon-btn">
+                    <FontAwesomeIcon icon={faCheck} style={{ color: "#2563eb" }} />
+                </button> : <button onClick={() => setIsEditing(true)} className="icon-btn">
+                    <FontAwesomeIcon icon={faPenToSquare} style={{ color: "rgb(28, 26, 26)" }} />
+                </button>}
+
+
+                <button onClick={() => deleteTodo(todo.id)} className="icon-btn">
+                    <FontAwesomeIcon icon={faTrash} style={{ color: "#dc2626" }} />
+                </button>
+            </div>
+        </div>
+    );
 }
 
 export default TodoItem;
