@@ -8,9 +8,10 @@ type Props = {
   toggleTodo: (id: string) => void;
   deleteTodo: (id: string) => void;
   setTodos: (todos: Todo[]) => void;
+  editTodo: (id: string, text: string) => void;
 };
 
-export default function TodoList({ todos, toggleTodo, deleteTodo, setTodos }: Props) {
+export default function TodoList({ todos, toggleTodo, deleteTodo, setTodos,editTodo }: Props) {
 
   // Called when drag ends
   const handleDragEnd = (result: DropResult) => {
@@ -37,11 +38,13 @@ export default function TodoList({ todos, toggleTodo, deleteTodo, setTodos }: Pr
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
-                    <TodoItem
-                      todo={todo}
-                      toggleTodo={toggleTodo}
-                      deleteTodo={deleteTodo}
-                    />
+                             <TodoItem
+  key={todo.id}
+  todo={todo}
+  deleteTodo={deleteTodo}
+  toggleTodo={toggleTodo}
+  editTodo={editTodo}
+/>
                   </div>
                 )}
               </Draggable>

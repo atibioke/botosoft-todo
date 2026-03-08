@@ -1,47 +1,74 @@
+import { useState } from "react";
+import type { Todo } from "../types/todo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import '../styles/TodoItem.css'
 
-type Todo = {
-    id: string
-    text: string
-    completed: boolean
-}
-
 type Props = {
-    todo: Todo
-    toggleTodo: (id: string) => void
-    deleteTodo: (id: string) => void
+  todo: Todo;
+  deleteTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
+  editTodo: (id: string, text: string) => void;
+};
+
+function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: Props) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newText, setNewText] = useState(todo.text);
+
+  const handleSave = () => {
+    if (!newText.trim()) return;
+    editTodo(todo.id, newText);
+    setIsEditing(false);
+  };
+
+  return (
+    <div className="todoitem-container">
+      <div className="checkbox-container">
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => toggleTodo(todo.id)}
+        />
+      </div>
+
+      <div className="todo-text-container">
+        {isEditing ? (
+          <>
+                      <input
+                          autoFocus
+                          value={newText}
+                           className="todo-input-edit"
+              onChange={(e) => setNewText(e.target.value)}
+            />
+
+          
+          </>
+        ) : (
+          <span
+            style={{
+              textDecoration: todo.completed ? "line-through" : "none"
+            }}
+          >
+            {todo.text}
+          </span>
+        )}
+      </div>
+
+          <div className="delete-button-container">
+              
+              {isEditing?   <button onClick={handleSave} className="icon-btn">
+              <FontAwesomeIcon icon={faCheck} style={{ color: "rgb(24, 24, 223)" }} />
+            </button> :  <button onClick={() => setIsEditing(true)} className="icon-btn">
+          <FontAwesomeIcon icon={faPenToSquare} style={{ color: "rgb(28, 26, 26)" }} />
+        </button>}
+       
+
+        <button onClick={() => deleteTodo(todo.id)} className="icon-btn">
+          <FontAwesomeIcon icon={faTrash} style={{ color: "rgb(242, 16, 16)" }} />
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default function TodoItem({ todo, toggleTodo, deleteTodo }: Props) {
-    return (
-        <div className='todoitem-container'>
-            <div className='checkbox-container'>
-
-
-                <input
-                    type="checkbox"
-                    checked={todo.completed}
-                    onChange={() => toggleTodo(todo.id)}
-                />
-            </div>
-            <div className='todo-text-container'>
-
-
-                <span
-                    style={{
-                        textDecoration: todo.completed ? "line-through" : "none",
-                    }}
-                >
-                    {todo.text}
-                </span>
-            </div>
-            <div className='delete-button-container'>
-
-
-                <button onClick={() => deleteTodo(todo.id)} className='delete-btn'>
-                    Delete
-                </button>
-            </div>
-        </div>
-    )
-}
+export default TodoItem;

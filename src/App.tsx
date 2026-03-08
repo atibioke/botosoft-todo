@@ -82,7 +82,14 @@ function App() {
     return true;
   });
 
-
+  ////////Edit Todo
+    const editTodo = (id: string, newText: string) => {
+  setTodos((prev) =>
+    prev.map((todo) =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    )
+  );
+};
   
 
   return (
@@ -138,6 +145,7 @@ function App() {
                             todo={todo}
                             toggleTodo={toggleTodo}
                             deleteTodo={askDeleteTodo}
+                            editTodo={editTodo}
                           />
                         </div>
                       )}

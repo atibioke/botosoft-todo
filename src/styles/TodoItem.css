@@ -12,9 +12,13 @@
 
 
 .delete-button-container {
-    width: 110px;
+    width: 70px;
     display: flex;
     align-items: center;
+    gap: 10px;
+    /* background-color: red; */
+    justify-content: space-evenly;
+    padding: 0px 20px;
 }
 
 .todo-text-container {
@@ -29,6 +33,25 @@ border: 1px solid #000;
     border-radius: 5px;
     padding: 8px 16px;
     cursor: pointer;
+}
+
+.icon-btn{
+    background-color: #fff;
+    border: 1px solid #000;
+    outline: none;
+    cursor: pointer;
+border-radius: 5px;
+}
+
+
+
+.todo-input-edit{
+    display: flex;
+    flex: 1;
+        padding: 10px 8px;
+        border-radius: 4px;
+        border: 1px solid #fff;
+        width: 100%;
 }
 
 /* .delete-btn{
