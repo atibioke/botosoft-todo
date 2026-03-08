@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Todo } from "../types/todo";
 import type { DropResult } from "@hello-pangea/dnd";
 
-export type Filter = "all" | "active" | "completed";
+export type Filter = "all" | "active" | "completed";;
 
 export function useTodos() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -10,8 +10,8 @@ export function useTodos() {
 /////Add todo
   const addTodo = (text: string) => {
     const newTodo: Todo = {
-      id: Date.now().toString(),
-      text,
+      id: Date.now().toString() ,
+      text ,
       completed: false,
     };
 
@@ -21,7 +21,7 @@ export function useTodos() {
   const toggleTodo = (id: string) => {
     setTodos((prev) =>
       prev.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        todo.id === id ? {...todo, completed: !todo.completed } : todo
       )
     );
   };
