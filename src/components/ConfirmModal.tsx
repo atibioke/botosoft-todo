@@ -22,8 +22,8 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm }: Props) {
           <button className="delete-btn" onClick={onConfirm}>
             Delete
           </button>
-        </div >
-      </div >
-    </div >
+        </div>
+      </div>
+    </div>
   )
 }
