@@ -3,15 +3,23 @@
     justify-content: space-between;
     width: 100%;
     border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 6px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 12px;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .checkbox-container {
     width: 20px;
     display: flex;
     align-items: center;
+    background-color: #fff;
+}
+
+.todo-checkbox {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    accent-color: #2563eb;
 }
 
 
@@ -33,30 +41,32 @@
 .delete-btn {
     background: red;
     color: #fff;
-border: 1px solid #000;
+    border: 1px solid #000;
     border-radius: 5px;
     padding: 8px 16px;
     cursor: pointer;
 }
 
-.icon-btn{
+.icon-btn {
     background-color: #fff;
     border: 1px solid #000;
     outline: none;
     cursor: pointer;
-border-radius: 5px;
+    border-radius: 5px;
 }
 
 
 
-.todo-input-edit{
+.todo-input-edit {
     display: flex;
     flex: 1;
-        padding: 10px 8px;
-        border-radius: 4px;
-        border: 1px solid #fff;
-        width: 100%;
+    padding: 10px 8px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    width: 100%;
 }
+
+
 
 /* .delete-btn{
     padding: 0.6em 1.2em;

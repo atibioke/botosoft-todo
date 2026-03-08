@@ -28,6 +28,7 @@ function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: Props) {
                     type="checkbox"
                     checked={todo.completed}
                     onChange={() => toggleTodo(todo.id)}
+                    className="todo-checkbox"
                 />
             </div>
 

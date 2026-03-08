@@ -5,6 +5,7 @@ import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import type { DropResult } from "@hello-pangea/dnd"
 import './App.css'
 import ConfirmModal from "./components/ConfirmModal";
+import { getEmptyMessage } from "./utils/getEmptyMessage";
 
 type Todo = {
   id: string;
@@ -90,19 +91,7 @@ function App() {
     )
   );
 };
-  function getEmptyMessage(filter: string) {
-  switch (filter) {
-    case "active":
-      return "No active tasks.";
 
-    case "completed":
-      return "No completed tasks.";
-
-    case "all":
-    default:
-      return "No todos yet. Add one above.";
-  }
-}
 
   return (
     <div className="main-container">
